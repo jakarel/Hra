@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start \"\" \"C:\\\\Users\\\\default.device\\\\Documents\\\\Hra\\\\index.html\")",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nHra Svecena Voda vs Certi - plna verze\n\n- Zakladni hra: kostel, letajici certi, nocni obloha s mesicem a hvezdami\n- 4 zbrane: Svecena voda \\(Q\\), Pistolka \\(W\\), Sprej \\(E\\), Svaty proud \\(F\\)\n- Pistolka ma zasobnik 20 ran, reload klavesou R \\(stoji 50% vody\\)\n- Svaty proud: drzeni tlacitka vytvori kontinualni paprsek, 2 DMG/s, 20% vody/s, prochazi skrz certy\n- Nadrz vody s pomalym doplnovanim\n- System andelu: vzacny spawn, prida zivot pri dosazeni kostela, certi ho pronasleduji\n- 10 vln s rostouci obtiznosti a viteznou obrazovkou\n- Pointer Lock input system pro plynuly pohyb mysi\n- Vlastni crosshair kurzor na canvasu\n- Strileni mysi nebo mezernikem, prepinani zbrani Q/W/E/F nebo koleckem\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -c user.name=\"Player\" -c user.email=\"player@game.local\" commit -m \"$\\(cat <<''EOF''\nHra Svecena Voda vs Certi - plna verze\n\n- Zakladni hra: kostel, letajici certi, nocni obloha s mesicem a hvezdami\n- 4 zbrane: Svecena voda \\(Q\\), Pistolka \\(W\\), Sprej \\(E\\), Svaty proud \\(F\\)\n- Pistolka ma zasobnik 20 ran, reload klavesou R \\(stoji 50% vody\\)\n- Svaty proud: drzeni tlacitka vytvori kontinualni paprsek, 2 DMG/s, 20% vody/s, prochazi skrz certy\n- Nadrz vody s pomalym doplnovanim\n- System andelu: vzacny spawn, prida zivot pri dosazeni kostela, certi ho pronasleduji\n- 10 vln s rostouci obtiznosti a viteznou obrazovkou\n- Pointer Lock input system pro plynuly pohyb mysi\n- Vlastni crosshair kurzor na canvasu\n- Strileni mysi nebo mezernikem, prepinani zbrani Q/W/E/F nebo koleckem\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}
