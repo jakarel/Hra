@@ -30,6 +30,39 @@ canvas { display: block; cursor: none; outline: none; }
 #startScreen p, #gameOverScreen p {
   font-size: 18px; color: #ccc; margin-bottom: 30px; text-align: center; line-height: 1.6;
 }
+#startContent {
+  display: flex; align-items: flex-start; justify-content: center;
+  gap: 40px; width: 90%; max-width: 1300px; margin-bottom: 24px;
+}
+.info-panel {
+  flex: 1; max-width: 380px; background: rgba(255,215,0,0.06);
+  border: 1px solid rgba(255,215,0,0.25); border-radius: 12px;
+  padding: 16px 18px; text-align: left;
+}
+.info-panel h2 {
+  font-size: 22px; color: #ffd700; margin-bottom: 12px; text-align: center;
+  text-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
+.info-item {
+  margin-bottom: 10px; padding: 8px 10px; border-radius: 6px;
+  background: rgba(255,255,255,0.04); border-left: 3px solid rgba(255,215,0,0.4);
+}
+.info-item .item-name {
+  font-size: 15px; font-weight: bold; color: #ffd700; margin-bottom: 3px;
+}
+.info-item .item-key {
+  display: inline-block; background: rgba(255,255,255,0.12); color: #ddd;
+  padding: 1px 7px; border-radius: 4px; font-size: 12px; margin-left: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.info-item .item-stats {
+  font-size: 13px; color: #aaa; line-height: 1.5;
+}
+.info-item .item-stats span { color: #cde; }
+#startCenter {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 300px;
+}
 .btn {
   padding: 15px 40px; font-size: 22px; background: linear-gradient(180deg, #ffd700, #b8860b);
   border: 2px solid #ffd700; color: #1a0a00; font-weight: bold; cursor: pointer;
@@ -59,13 +92,85 @@ canvas { display: block; cursor: none; outline: none; }
 </div>
 
 <div id="startScreen">
-  <h1>Svecena Voda vs Certi</h1>
-  <p>Branis kostel pred hordy letajicich certu!<br>
-  Klikni do hry pro zachyceni mysi. Strilej kliknutim.<br>
-  Prepinaj zbrane klavesami 1/2/3/4 nebo koleckem mysi.<br>
-  Pistolka ma zasobnik na 20 ran - dobij mezernikem (stoji 50% vody).<br>
-  Nenech certy doletit ke kostelu!</p>
-  <button class="btn" id="startBtn">Hrat</button>
+  <h1>Svecena voda vs Certi</h1>
+  <p>Branis kostel pred letajicimi certy! Strilej kliknutim.<br>
+  Prepinej zbrane klavesami nebo koleckem mysi. Dobij mezernikem.</p>
+
+  <div id="startContent">
+    <!-- Zbrane - leva strana -->
+    <div class="info-panel">
+      <h2>Zbrane</h2>
+      <div class="info-item">
+        <div class="item-name">Svecena voda <span class="item-key">1</span></div>
+        <div class="item-stats">
+          Dmg: <span>10</span> | Rychlost: <span>10</span> | Cena: <span>10%</span><br>
+          Zakladni zbran, hazi svecenu vodu
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="item-name">Pistolka <span class="item-key">2</span></div>
+        <div class="item-stats">
+          Dmg: <span>5</span> | Rychlost: <span>20</span> | Zasobnik: <span>20</span><br>
+          Dobiti: <span>40%</span> vody | Strelba nestoji vodu
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="item-name">Kropenka <span class="item-key">3</span></div>
+        <div class="item-stats">
+          Dmg: <span>4</span> | Rychlost: <span>16</span> | Zasobnik: <span>80</span><br>
+          Dobiti: <span>60%</span> vody | Automaticka palba
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="item-name">Sprej <span class="item-key">Q</span></div>
+        <div class="item-stats">
+          Dmg: <span>1&times;16</span> | Cena: <span>20%</span><br>
+          Brokovnice - 16 kapek v sirsi 60&deg;
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="item-name">Svaty proud <span class="item-key">W</span></div>
+        <div class="item-stats">
+          Dmg: <span>10</span> | Cena: <span>50%</span><br>
+          Paprsek prochazi vsemi neprateli
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="item-name">Balonek <span class="item-key">E</span></div>
+        <div class="item-stats">
+          Dmg: <span>20</span> | Cena: <span>30%</span><br>
+          Pomaly balonek s velkou explozi (160px)
+        </div>
+      </div>
+    </div>
+
+    <!-- Stred - navod + tlacitko -->
+    <div id="startCenter">
+      <button class="btn" id="startBtn">Hrat</button>
+    </div>
+
+    <!-- Modlidby - prava strana -->
+    <div class="info-panel">
+      <h2>Modlitby</h2>
+      <div class="info-item" style="border-left-color: #50c8ff;">
+        <div class="item-name" style="color:#50c8ff;">Zpomaleni <span class="item-key">Ctrl</span></div>
+        <div class="item-stats">
+          Cena: <span>50%</span> vody | Trvani: <span>5s</span><br>
+          Cooldown: <span>10s</span><br>
+          Zpomali vsechny nepratele o 40%
+        </div>
+      </div>
+      <div class="info-item" style="border-left-color: #ffee44;">
+        <div class="item-name" style="color:#ffee44;">Blesky <span class="item-key">Shift</span></div>
+        <div class="item-stats">
+          Cena: <span>70%</span> vody | Trvani: <span>15s</span><br>
+          Cooldown: <span>10s</span><br>
+          Automaticky bije blesky na nepratele<br>
+          s &le;6 HP (kazdy blesk dela 6 dmg)
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="gameOverScreen" style="display:none;">
@@ -107,23 +212,23 @@ let gameWon = false;
 
 // Enemy type definitions
 const enemyTypes = {
-  cert:  { minHp: 10, maxHp: 10, minSpeed: 1.0, maxSpeed: 1.8, minSize: 24, maxSize: 34, scoreMult: 10 },
-  demon: { minHp: 20, maxHp: 20, minSpeed: 0.7, maxSpeed: 1.3, minSize: 34, maxSize: 46, scoreMult: 15 },
-  dabel: { minHp: 40, maxHp: 40, minSpeed: 0.4, maxSpeed: 0.9, minSize: 46, maxSize: 60, scoreMult: 25 },
+  cert:  { minHp: 10, maxHp: 10, minSpeed: 1.0, maxSpeed: 2.0, minSize: 20, maxSize: 30, scoreMult: 10 },
+  demon: { minHp: 20, maxHp: 20, minSpeed: 0.5, maxSpeed: 1.0, minSize: 30, maxSize: 40, scoreMult: 15 },
+  dabel: { minHp: 40, maxHp: 40, minSpeed: 0.75, maxSpeed: 1.5, minSize: 40, maxSize: 50, scoreMult: 25 },
 };
 
 // Wave definitions (10 waves) - weights: [cert, demon, dabel]
 const waveConfig = [
-  { count: 5,  spawnInterval: 130, name: 'Prvni horda',      weights: [1.0, 0.0, 0.0] },
-  { count: 7,  spawnInterval: 110, name: 'Posily z pekla',   weights: [0.9, 0.1, 0.0] },
-  { count: 9,  spawnInterval: 100, name: 'Tuzsi korist',     weights: [0.8, 0.2, 0.0] },
-  { count: 11, spawnInterval: 90,  name: 'Pekelny pruval',   weights: [0.7, 0.25, 0.05] },
-  { count: 13, spawnInterval: 80,  name: 'Certuv regiment',  weights: [0.6, 0.3, 0.1] },
-  { count: 15, spawnInterval: 70,  name: 'Temnota houstne',  weights: [0.5, 0.35, 0.15] },
-  { count: 18, spawnInterval: 60,  name: 'Nebeska zkouska',  weights: [0.4, 0.35, 0.25] },
-  { count: 20, spawnInterval: 55,  name: 'Pekelna ofenziva', weights: [0.35, 0.35, 0.3] },
-  { count: 24, spawnInterval: 45,  name: 'Satanuv hnev',     weights: [0.3, 0.35, 0.35] },
-  { count: 30, spawnInterval: 35,  name: 'Finalni bitva!',   weights: [0.25, 0.35, 0.4] },
+  { count: 8,  spawnInterval: 120, name: 'Prvni horda',      weights: [1.0, 0.0, 0.0] },
+  { count: 10, spawnInterval: 110, name: 'Posily z pekla',   weights: [0.8, 0.2, 0.0] },
+  { count: 12, spawnInterval: 100, name: 'Tuzsi korist',     weights: [0.6, 0.4, 0.0] },
+  { count: 14, spawnInterval: 90,  name: 'Pekelny pruval',   weights: [0.4, 0.6, 0.0] },
+  { count: 16, spawnInterval: 80,  name: 'Certuv regiment',  weights: [0.2, 0.7, 0.1] },
+  { count: 18, spawnInterval: 70,  name: 'Temnota houstne',  weights: [0.1, 0.8, 0.1] },
+  { count: 20, spawnInterval: 60,  name: 'Nebeska zkouska',  weights: [0.1, 0.7, 0.2] },
+  { count: 22, spawnInterval: 50,  name: 'Pekelna ofenziva', weights: [0.0, 0.6, 0.4] },
+  { count: 24, spawnInterval: 40,  name: 'Satanuv hnev',     weights: [0.0, 0.4, 0.6] },
+  { count: 36, spawnInterval: 30,  name: 'Finalni bitva!',   weights: [0.0, 0.2, 0.8] },
 ];
 const totalWaves = waveConfig.length;
 
@@ -151,11 +256,11 @@ let waterFlashTimer = 0; // flash red when empty
 
 // Weapons system
 const weapons = [
-  { name: 'Svecena voda', key: '1', waterCost: 10, damage: 10, speed: 10, size: 10, color: '#7ec8f0', trailColor: 'rgba(100,180,255,', gravity: 0.05, piercing: false },
+  { name: 'Svecena voda', key: '1', waterCost: 10, damage: 10, speed: 10, size: 10, color: '#7ec8f0', trailColor: 'rgba(100,180,255,', gravity: 0.04, piercing: false },
   { name: 'Pistolka', key: '2', waterCost: 0, damage: 5, speed: 20, size: 6, color: '#b0e0ff', trailColor: 'rgba(170,220,255,', gravity: 0.01, piercing: false },
   { name: 'Kropenka', key: '3', waterCost: 0, damage: 4, speed: 16, size: 4, color: '#90d0f0', gravity: 0.02, piercing: false, machineGun: true, fireRate: 4 },
-  { name: 'Sprej', key: 'Q', waterCost: 20, damage: 1, speed: 12, size: 2, dropCount: 16, spreadAngle: 60, color: '#a0d8ef', gravity: 0.08, piercing: false },
-  { name: 'Svaty proud', key: 'W', waterCost: 50, damage: 10, beamWidth: 24, color: '#50c8ff', piercing: true },
+  { name: 'Sprej', key: 'Q', waterCost: 20, damage: 5, speed: 8, size: 1, dropCount: 30, spreadAngle: 60, color: '#a0d8ef', gravity: 0.08, piercing: false },
+  { name: 'Svaty proud', key: 'W', waterCost: 50, damage: 40, beamWidth: 32, color: '#50c8ff', piercing: true },
   { name: 'Balonek', key: 'E', waterCost: 30, damage: 20, speed: 2, size: 20, color: '#4da6ff', explosionRadius: 160 }
 ];
 let currentWeapon = 0;
